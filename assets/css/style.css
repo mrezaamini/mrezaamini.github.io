@@ -29,6 +29,7 @@ main{
 }
 
 .glass{
+  animation: TransitionIn 1s;
   background: white;
   width: 80%;
   max-width: 800px;
@@ -343,4 +344,17 @@ li{
   .avatar_box{
     margin-top: 5px;
   }
+}
+
+@keyframes TransitionIn {
+  from{
+    opacity: 0;
+    transform: translateY(5px);
+
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
 }
