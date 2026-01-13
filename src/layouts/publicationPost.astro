@@ -65,34 +65,34 @@ const venueLine = shortVenue ? venue : venue;
       {/* Title + meta */}
       <h1 class="mt-8 text-4xl md:text-5xl font-bold leading-tight">{title}</h1>
 
-      <div class="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm">
-  <span class="font-medium">{venue}</span>
-
+      <div class="mt-4 text-sm font-medium">
+  {venue}
   {shortVenue && (
     <>
-      <span class="opacity-60">(</span>
+      {" ("}
       {venueUrl ? (
         <a
           href={venueUrl}
           target="_blank"
           rel="noopener noreferrer"
-          class="underline underline-offset-4 font-medium hover:opacity-100"
+          class="underline underline-offset-4 hover:opacity-100"
         >
           {shortVenue}
         </a>
       ) : (
-        <span class="font-medium">{shortVenue}</span>
+        shortVenue
       )}
-      <span class="opacity-60">)</span>
+      {")"}
     </>
   )}
-
-  <span class="opacity-60">•</span>
-
-  <span class="font-light">
-    <FormattedDate date={pubDate} />
-  </span>
 </div>
+
+{/* Date on its own line, subtle + tight spacing */}
+<div class="mt-1 text-sm font-light opacity-70">
+  <FormattedDate date={pubDate} />
+</div>
+
+
 
       {/* Authors */}
       {coAuthors && coAuthors.length > 0 && (
@@ -104,7 +104,7 @@ const venueLine = shortVenue ? venue : venue;
                 href={a.scholar}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="underline underline-offset-4 hover:opacity-100"
+                class="underline underline-offset-4 hover:text-ppink transition"
               >
                 {a.name}
               </a>
@@ -132,7 +132,7 @@ const venueLine = shortVenue ? venue : venue;
         <div class="mt-6 flex flex-wrap gap-3 text-sm">
           {pdf && (
             <a
-              class="inline-flex items-center justify-center rounded-2xl border-1 border-black px-4 py-2 shadow-card hover:shadow-hover transition"
+              class="px-5 py-3 border-1 border-black rounded-lg shadow-card hover:shadow-hover transition whitespace-nowrap bg-pyellow"
               href={pdf}
               target="_blank"
               rel="noopener noreferrer"
@@ -142,7 +142,7 @@ const venueLine = shortVenue ? venue : venue;
           )}
           {doiUrl && (
             <a
-              class="inline-flex items-center justify-center rounded-2xl border-1 border-black px-4 py-2 shadow-card hover:shadow-hover transition"
+              class="px-5 py-3 border-1 border-black rounded-lg shadow-card hover:shadow-hover transition whitespace-nowrap bg-pgreen"
               href={doiUrl}
               target="_blank"
               rel="noopener noreferrer"
