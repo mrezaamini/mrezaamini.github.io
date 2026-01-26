@@ -1,6 +1,8 @@
 ---
 import Link from "./HeaderLink.astro";
 import "../styles/hamburgers.css";
+import { Image } from "astro:assets";
+import aminiLogo from "../assets/aminiBold.png";
 ---
 
 <header>
@@ -8,10 +10,15 @@ import "../styles/hamburgers.css";
     class="flex container mx-auto md:p-10 px-4 py-6 items-center justify-between"
   >
     <a class="flex items-center gap-2" href="/" aria-label="Home">
-      <p class="pt-2 md:text-lg font-semibold flex">
-        <span class="hidden md:inline mr-1">Mohammadreza</span> Amini
-      </p>
-    </a>
+  <Image
+    src={aminiLogo}
+    alt="Amini logo"
+    width={420}
+    height={120}
+    class="h-6 md:h-8 w-auto opacity-80 hover:opacity-100 transition-opacity"
+    loading="eager"
+  />
+</a>
     <ul class="items-center md:gap-8 text-nowrap hidden md:flex">
       <li><Link href="/" text="Home" style="primary" /></li>
       <!-- <li><Link href="/about" text="Work" style="secondary" /></li> -->
