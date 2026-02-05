@@ -29,6 +29,11 @@
     --font-mono: Alexandria, monospace;
     --font-sans: Alexandria, sans-serif;
     --font-kablamo: Kablammo, serif;
+    /* --font-logo: "Special Gothic Expanded One", sans-serif; */
+    /* --font-logo: "Monoton", sans-serif; */
+    --font-logo: "Major Mono Display", monospace;
+    
+
 
     /* Spacing */
     --margin-30: 7.3rem;

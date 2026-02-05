@@ -2,24 +2,22 @@
 import Link from "./HeaderLink.astro";
 import "../styles/hamburgers.css";
 import { Image } from "astro:assets";
-import aminiLogo from "../assets/aminiBold.png";
 ---
 
 <header>
   <nav
-    class="flex container mx-auto md:p-10 px-4 py-6 items-center justify-between"
-  >
-    <a class="flex items-center gap-2" href="/" aria-label="Home">
-  <Image
-    src={aminiLogo}
-    alt="Amini logo"
-    width={420}
-    height={120}
-    class="h-6 md:h-8 w-auto opacity-80 hover:opacity-100 transition-opacity"
-    loading="eager"
-  />
+  class="flex container mx-auto md:p-10 px-4 py-6
+         items-center justify-between
+         min-h-[150px] pt-0! pb-0!"
+>
+    <a
+  href="/"
+  aria-label="Home"
+  class="flex items-center font-logo text-bold tracking-wide text-xl sm:text-2xl md:text-3xl lg:text-4xl
+         opacity-100 hover:opacity-100 transition-opacity">
+  AMini
 </a>
-    <ul class="items-center md:gap-8 text-nowrap hidden md:flex">
+    <ul class="items-center font-light md:gap-8 text-nowrap hidden md:flex">
       <li><Link href="/" text="Home" style="primary" /></li>
       <!-- <li><Link href="/about" text="Work" style="secondary" /></li> -->
       <li><Link href="/publications" text="Publications" style="tertiary" /></li>

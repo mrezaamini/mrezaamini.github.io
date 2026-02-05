@@ -10,10 +10,10 @@ const top3 = publications.slice(0, 3);
 ---
 
 <section class="flex flex-col items-center text-center gap-4">
-  <p class="text-pblack">Selected publications</p>
-  <h2 class="text-4xl font-bold">What I do</h2>
+  <p class="text-pblack">Recent Publications</p>
+  <h2 class="text-4xl font-bold">Research Overview</h2>
 
-  <ul class="w-full max-w-[940px] mx-auto flex flex-col gap-6 py-12">
+  <ul class="w-full max-w-[940px] mx-auto flex flex-col gap-6 pt-8 pb-4">
     {top3.map((p) => (
       <li class="group text-left rounded-3xl border-1 border-black shadow-card hover:shadow-hover transition px-6 py-6">
         <a
@@ -24,14 +24,14 @@ const top3 = publications.slice(0, 3);
           <h3 class="text-xl font-semibold">{p.data.title}</h3>
 
           {/* Venue */}
-<div class="mt-2 text-sm font-medium">
-  {p.data.venue}
-</div>
+          <div class="mt-2 text-sm font-medium">
+            {p.data.venue}
+          </div>
 
-{/* Date (secondary, tight spacing) */}
-<div class="mt-1 text-sm font-light opacity-70">
-  <FormattedDate date={p.data.pubDate} />
-</div>
+          {/* Date */}
+          <div class="mt-1 text-sm font-light opacity-70">
+            <FormattedDate date={p.data.pubDate} />
+          </div>
         </a>
       </li>
     ))}
@@ -39,7 +39,7 @@ const top3 = publications.slice(0, 3);
 
   <a
     href="/publications/"
-    class="inline-flex items-center justify-center rounded-2xl border-1 border-black px-6 py-3 shadow-card hover:shadow-hover transition"
+    class="mt-2 inline-flex items-center justify-center rounded-2xl border-1 border-black px-6 py-3 shadow-card hover:shadow-hover transition"
   >
     See all
   </a>
