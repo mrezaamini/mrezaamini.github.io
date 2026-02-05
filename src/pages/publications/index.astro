@@ -23,7 +23,7 @@ const pubs = (await getCollection("publications")).sort(
 
       <ul class="mt-10 flex flex-col gap-6">
         {pubs.map((p) => (
-          <li class="rounded-3xl border-1 border-black shadow-card hover:shadow-hover transition px-6 py-6">
+          <li class="rounded-3xl border-1 border-black bg-white shadow-card hover:shadow-hover transition px-6 py-6">
             <a href={`/publications/${p.id}/`} class="block">
               <h2 class="text-xl font-semibold">{p.data.title}</h2>
 

@@ -2,9 +2,18 @@
 import { getCollection } from "astro:content";
 import FormattedDate from "@/components/FormattedDate.astro";
 
-const publications = (await getCollection("publications")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
+const publications = (await getCollection("publications")).sort((a, b) => {
+  const dateDiff = b.data.pubDate.valueOf() - a.data.pubDate.valueOf();
+
+  // Primary sort: by date (descending)
+  if (dateDiff !== 0) return dateDiff;
+
+  // Secondary sort: venue contains "abstract"
+  const aHasAbstract = a.data.venue?.toLowerCase().includes("abstracts") ? 1 : 0;
+  const bHasAbstract = b.data.venue?.toLowerCase().includes("abstracts") ? 1 : 0;
+
+  return aHasAbstract - bHasAbstract;
+});
 
 const top3 = publications.slice(0, 3);
 ---
@@ -15,7 +24,7 @@ const top3 = publications.slice(0, 3);
 
   <ul class="w-full max-w-[940px] mx-auto flex flex-col gap-6 pt-8 pb-4">
     {top3.map((p) => (
-      <li class="group text-left rounded-3xl border-1 border-black shadow-card hover:shadow-hover transition px-6 py-6">
+      <li class="group text-left rounded-3xl border-1 bg-white border-black shadow-card hover:shadow-hover transition px-6 py-6">
         <a
           href={`/publications/${p.id}/`}
           aria-label={p.data.title}
